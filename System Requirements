@@ -1,0 +1,37 @@
+. Functional Requirements
+A. Patient Management
+Add/update/delete patient profiles
+
+Link/unlink insurance
+
+Maintain medical records (drugs, diagnoses, notes, etc.)
+
+View historical data (reports, assessments)
+
+B. Insurance Management
+Create and associate insurance records with patients
+
+Retrieve insurance data based on member or plan number
+
+C. Medical Records
+Store and retrieve:
+
+Notes
+
+Self-reports
+
+Diagnoses
+
+Assessment answers/questions
+
+Drug prescriptions and their side effects
+
+D. Doctor and Pharmacy Management
+Associate doctors and pharmacies with patients
+
+Query which drugs are linked to which doctors/pharmacies
+
+E. Onboarding
+Manage onboarding flow and responses
+
+Store answers to onboarding questions
