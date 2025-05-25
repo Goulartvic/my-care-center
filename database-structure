@@ -1,70 +1,49 @@
-patients (coleção)
-  [patientId] (documento)
-    name
-    address
-    birthday
-    phone_number
-    family_doctor_contact
-    status
-    insurance_id (referência para insurances)
-    treatment_center
-    list_drugs: [drugId, ...]
-    list_doctors: [doctorId, ...]
-    list_pharmacies: [pharmacyId, ...]
-    list_self_reports: [selfReportId, ...]
-    list_assessments: [assessmentId, ...]
-    list_notes: [noteId, ...]
-    list_diagnoses: [diagnosisId, ...]
+patients (collection)
+  └── {patientId} (document)
+        ├─ name: string
+        ├─ address: string
+        ├─ birthday: string (YYYY-MM-DD)
+        ├─ phone_number: string
+        ├─ family_doctor_contact: string
+        ├─ status: string
+        ├─ insurance_id: string
+        ├─ treatment_center: string
+        ├─ list_drugs: [drugId, ...]
+        ├─ list_doctors: [doctorId, ...]
+        ├─ list_pharmacies: [pharmacyId, ...]
+        ├─ list_self_reports: []
+        ├─ list_assessments: []
+        ├─ list_notes: []
+        ├─ list_diagnoses: []
 
-insurances
-  [insuranceId]
-    member_number
-    plan_number
+doctors (collection)
+  └── {doctorId} (document)
+        ├─ name: string
+        ├─ specialty: string
+        ├─ phone_number: string
+        ├─ email: string
+        ├─ address: string
+        ├─ list_patients: [patientId, ...]
+        ├─ list_drugs: [drugId, ...]
+        ├─ list_notes: []
 
-doctors
-  [doctorId]
-    name
-    list_patients: [patientId, ...]
-    list_drugs: [drugId, ...]
+drugs (collection)
+  └── {drugId} (document)
+        ├─ name: string
+        ├─ dosage: string      // e.g. "200mg"
+        ├─ time: string        // e.g. "08:00"
+        ├─ frequency: string   // e.g. "Twice a day"
+        ├─ pills_left: number
+        ├─ description: string
+        ├─ list_patients: [patientId, ...]
+        ├─ list_doctors: [doctorId, ...]
+        ├─ list_pharmacies: [pharmacyId, ...]
 
-drugs
-  [drugId]
-    name
-    list_pharmacies: [pharmacyId, ...]
-    list_patients: [patientId, ...]
-    list_side_effects: [sideEffectId, ...]
-    onboarding_id
-
-pharmacies
-  [pharmacyId]
-    name
-    address
-
-notes
-  [noteId]
-    notes_information
-    patient_id
-
-self_reports
-  [selfReportId]
-    report_information
-    patient_id
-
-diagnoses
-  [diagnosisId]
-    diagnosis_information
-    patient_id
-
-assessments
-  [assessmentId]
-    question
-    patient_id
-
-onboardings
-  [onboardingId]
-    list_onboarding_questions: [questionId, ...]
-    list_patients: [patientId, ...]
-
-side_effects
-  [sideEffectId]
-    description
+pharmacies (collection)
+  └── {pharmacyId} (document)
+        ├─ name: string
+        ├─ address: string
+        ├─ phone_number: string
+        ├─ email: string
+        ├─ list_patients: [patientId, ...]
+        ├─ list_drugs: [drugId, ...]
